@@ -20,7 +20,6 @@ body {
 }
 
 #screen {
-    height: 3rem;
     display: flex;
     flex-direction:column;
     justify-content:evenly;
