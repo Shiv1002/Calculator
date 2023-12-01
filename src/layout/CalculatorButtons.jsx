@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CalculatorButtons() {
+export default function Calculator({ dispatch }) {
   let buttons = [
     "AC",
     "DEL",
@@ -25,7 +25,17 @@ export default function CalculatorButtons() {
     <>
       calci
       {buttons.map((digit) => (
-        <button>{digit}</button>
+        <button
+          onClick={() => {
+            console.log("Typed digit", digit);
+            if (digit == "AC" || digit == "DEL" || digit == "=") {
+              return dispatch({ type: digit });
+            }
+            return dispatch({ type: "DIGIT", expression: digit });
+          }}
+        >
+          {digit}
+        </button>
       ))}
     </>
   );

@@ -1,18 +1,17 @@
 import "./App.css";
 import DisplayScreen from "./layout/DisplayScreen";
-import CalculatorButtons from "./layout/CalculatorButtons";
-import { cal_reducer, useR } from "./reducer/CalReducer";
-import { useReducer, useState } from "react";
+import Calculator from "./layout/CalculatorButtons";
+import { cal_reducer, useR, init } from "./reducer/CalReducer";
 
 function App() {
-  const [result, dispatch] = useR(cal_reducer, 0);
+  const [state, dispatch] = useR(cal_reducer, init);
 
   return (
     <>
       <div>This is cal</div>
-      <DisplayScreen result={result}></DisplayScreen>
+      <DisplayScreen result={state}></DisplayScreen>
       <div>
-        <CalculatorButtons dispatch={dispatch} />
+        <Calculator dispatch={dispatch} />
       </div>
     </>
   );
