@@ -7,12 +7,10 @@ function App() {
   const [state, dispatch] = useR(cal_reducer, init);
 
   return (
-    <>
+    <div className="cal-container">
       <DisplayScreen result={state}></DisplayScreen>
-      <div>
-        <Calculator dispatch={dispatch} />
-      </div>
-    </>
+      <Calculator dispatch={dispatch} />
+    </div>
   );
 }
 
