@@ -8,7 +8,6 @@ function App() {
 
   return (
     <>
-      <div>This is cal</div>
       <DisplayScreen result={state}></DisplayScreen>
       <div>
         <Calculator dispatch={dispatch} />

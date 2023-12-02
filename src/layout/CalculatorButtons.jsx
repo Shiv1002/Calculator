@@ -23,7 +23,6 @@ export default function Calculator({ dispatch }) {
   ];
   return (
     <>
-      calci
       {buttons.map((digit) => (
         <button
           onClick={() => {
