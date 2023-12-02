@@ -43,17 +43,19 @@ const calculate = (exp) => {
 
 export function cal_reducer(state, action) {
   switch (action.type) {
-    case "AC":
+    case "AC": {
       return init;
+    }
     case "DEL":
-      state.exp = state.exp.slice(0, state.exp.length - 1);
-      return { ...state };
+      let new_exp = state.exp.slice(0, state.exp.length - 1);
+      return { ...state, exp: new_exp };
+
     case "DIGIT": {
       console.log(state, action.expression);
-      state.exp = state.exp + action.expression;
-      let tmp_rs = calculate(state.exp);
-      if (tmp_rs) state.result = tmp_rs;
-      return { ...state };
+      let new_exp = state.exp + action.expression;
+      let tmp_rs = calculate(new_exp);
+      if (tmp_rs) return { exp: new_exp, result: tmp_rs };
+      return { ...state, exp: new_exp };
     }
     case "=":
       return state;
